@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dac.h"
+#include "dma.h"
 #include "usart.h"
 #include "tim.h"
 #include "gpio.h"
@@ -86,8 +88,10 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_LPUART1_UART_Init();
   MX_TIM4_Init();
+  MX_DAC1_Init();
   /* USER CODE BEGIN 2 */
 
   // Start timer

@@ -24,7 +24,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,6 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -89,6 +89,11 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+
+  // Start timer
+  HAL_TIM_Base_Start(&htim4);
+
+
 
   /* USER CODE END 2 */
 

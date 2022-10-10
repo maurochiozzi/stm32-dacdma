@@ -1001,8 +1001,8 @@ void MX_TIM4_Init(void)
     Error_Handler();
  80007f0:	f7ff ff5a 	bl	80006a8 <Error_Handler>
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
- 80007f4:	2300      	movs	r3, #0
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+ 80007f4:	2320      	movs	r3, #32
  80007f6:	607b      	str	r3, [r7, #4]
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  80007f8:	2300      	movs	r3, #0

@@ -26,6 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "math.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,7 +36,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define NODE_ONE_SAMPLE_SIZE 100 // Node 1 will work at 100 Hz, with 100 samples
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -46,6 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+uint32_t node_one_signal[NODE_ONE_SAMPLE_SIZE] = {0};
 
 /* USER CODE END PV */
 
@@ -97,7 +99,13 @@ int main(void)
   // Start timer
   HAL_TIM_Base_Start(&htim4);
 
+  // Generate node one signal sample
+  for(uint16_t i = 0; i < NODE_ONE_SAMPLE_SIZE; i++){
+	  node_one_signal[i] = (0xFFF+1)/2.0;
+  }
 
+  // Start DAC with DMA
+  HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, node_one_signal, NODE_ONE_SAMPLE_SIZE, DAC_ALIGN_12B_R);
 
   /* USER CODE END 2 */
 

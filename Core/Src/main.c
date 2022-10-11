@@ -101,7 +101,7 @@ int main(void)
 
   // Generate node one signal sample
   for(uint16_t i = 0; i < NODE_ONE_SAMPLE_SIZE; i++){
-	  node_one_signal[i] = (0xFFF+1)/2.0;
+	  node_one_signal[i] = (sin(i * 2 * M_PI / (float) NODE_ONE_SAMPLE_SIZE) + 1)*(0xFFF * 0.15)+(0xFFF * 0.15);
   }
 
   // Start DAC with DMA
